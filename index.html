@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Delight</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Bakery Delight</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home"><b>Home </b></a></li>
+                    <li><a href="#products"><b>Products</b></a></li>
+                    <li><a href="#about"><b>About Us</b></a></li>
+                    <li><a href="#contact"><b>Contact</b></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <h2><i>Welcome to Bakery Delight!</i></h2>
+            <p>Your one-stop shop for delicious cakes, pastries, cupcakes, and more!</p>
+        </div>
+    </section>
+
+    <section id="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="product-grid">
+                <div class="product">
+                    <img src="https://clipart.world/wp-content/uploads/2020/12/Cartoon-Birthday-Cake-clipart-transparent.png" height = "100" width = "100" alt="Cake">
+                    <h3>Customizable Cakes</h3>
+                    <p>Starting at $25.00</p>
+                    <button onclick="document.getElementById('customize-modal').style.display='block'">Customize Your Cake</button>
+                </div>
+                <!-- Other products like pastries, cupcakes, etc. can be listed similarly -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Cake Customization -->
+    <div id="customize-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="document.getElementById('customize-modal').style.display='none'">&times;</span>
+            <h2>Customize Your Cake</h2>
+            <form id="customize-form">
+                <label for="color">Select Color:</label>
+                <select id="color" name="color" required>
+                    <option value="white">White</option>
+                    <option value="pink">Pink</option>
+                    <option value="blue">Blue</option>
+                    <option value="chocolate">Chocolate</option>
+                </select>
+
+                <label for="size">Select Size:</label>
+                <select id="size" name="size" required>
+                    <option value="small">Small (6 inches)</option>
+                    <option value="medium">Medium (8 inches)</option>
+                    <option value="large">Large (10 inches)</option>
+                </select>
+
+                <label for="flavor">Select Flavor:</label>
+                <select id="flavor" name="flavor" required>
+                    <option value="vanilla">Vanilla</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="red_velvet">Red Velvet</option>
+                    <option value="strawberry">Strawberry</option>
+                </select>
+
+                <label for="look">Select Cake Design:</label>
+                <select id="look" name="look" required>
+                    <option value="classic">Classic</option>
+                    <option value="drip">Drip Cake</option>
+                    <option value="fondant">Fondant</option>
+                    <option value="naked">Naked Cake</option>
+                </select>
+
+                <button type="submit">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Bakery Delight. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById('customize-modal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Handle the form submission (for demonstration, actual processing needs backend support)
+        document.getElementById('customize-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Cake added to cart with your customizations!');
+            document.getElementById('customize-modal').style.display = 'none';
+        });
+    </script>
+</body>
+</html>
